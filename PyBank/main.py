@@ -13,7 +13,11 @@ with open(csvpath,newline='')as csvfile:
         date.append(row[0])
         revenue.append(row[1])
 cleaned_csv = zip(date,revenue)
-output_file = os.path.join("PyBank_Final.csv")
+output_file = os.path.join('..','PyBank','PyBank_Final.csv')
+with open(output_file, 'W', newline="") as datafile:
+    csvwriter = csv.writer(datafile)
+    csvwriter.writerow(["date","revenue"])
+    csvwriter.writerows(cleaned_csv)
 
 #    print(csvreader)
 
