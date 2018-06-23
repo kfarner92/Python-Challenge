@@ -1,15 +1,23 @@
 import os 
-
 import csv
+#Source filepath
+csvpath = os.path.join('..','PyBank','budget_data.csv')
+# Storage Lists
+date = []
+revenue = []
 
-cvspath = os.path.join('Users','KFarner','BootCamp','Python-Challenge','PyBank','budget_data.csv')
-
-with open(cvspath,newline='')as csvfile:
+with open(csvpath,newline='')as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
-
-    print(csvreader)
-
-    csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+    
     for row in csvreader:
-        print (row)
+        date.append(row[0])
+        revenue.append(row[1])
+cleaned_csv = zip(date,revenue)
+output_file = os.path.join("PyBank_Final.csv")
+
+#    print(csvreader)
+
+#   csv_header = next(csvreader)ß
+#   print(f"CSV Header: {csv_header}")
+#   for row in csvreader:
+#       print (row)
